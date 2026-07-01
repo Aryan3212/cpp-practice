@@ -159,6 +159,52 @@ void pattern11(int n ) {
     std::cout << "\n";
   }
 }
+// 1    1 |4 1      1 |6
+// 12  21 |2 12    21 |4
+// 123321 |0 123  321 |2
+//        |  12344321 
+// 
+
+void pattern12(int n) {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j <= i; j++) {
+      std::cout << (j+1);
+    }
+    for (int j = 0; j < 2 * (n - i - 1); j++) {
+      std::cout << "-";
+    }
+    for (int j = i; j >= 0; j--) {
+      std::cout << (j+1);
+    }
+    std::cout << "\n";
+  }
+}
+void pattern12_symmetric(int n) {
+  int columns = 2 * n;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < columns; j++) {
+      if (j <= i) {
+        std::cout << j + 1;
+      } else if (j >= columns - i - 1) {
+        std::cout << columns - j;
+      } else {
+        std::cout << "-";
+      }
+    }
+    std::cout << "\n";
+  }
+}
+void pattern13(int n ) {
+  int last = 0;
+  for (int i = 1; i <= n; i++) {
+    int j;
+    for (j = 1; j <=i; j++) {
+      std::cout << last + j << " ";
+    }
+    last = last + j - 1;
+    std::cout << "\n";
+  }
+}
 void print_string(std::string a){
   std::cout << a;
 }
@@ -188,10 +234,13 @@ int main() {
       // print_string("--------------------------------\n");
       // pattern9(num);
       // pattern9_symmetric(num);
-      pattern10(num);
+      // pattern10(num);
+      // print_string("--------------------------------\n");
+      // pattern11(num);
       print_string("--------------------------------\n");
-      pattern11(num);
-        } else {
+      // pattern12_symmetric(num);
+      pattern13(num);
+      } else {
       std::cout << "Invalid input\n";
       break;
     }
