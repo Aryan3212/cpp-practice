@@ -323,6 +323,60 @@ void pattern19_pointydiamond(int n) {
     std::cout << "\n";
   }
 }
+void pattern20(int n) {
+  int size = 2 * n; // size of the diamond in length
+  for (int i = 1; i < size; i++) {
+    for (int j = 1; j <= size; j++) {
+      int leftSide, rightSide;
+      if (i <= n) {
+        leftSide = i;
+        rightSide = size - i;
+      } else {
+        leftSide = size - i;
+        rightSide = i;
+      }
+      if (j <= leftSide || j > rightSide) {
+        std::cout << "*";
+      } else {
+        std::cout << "-";
+      }
+    }
+    std::cout << "\n";
+  }
+}
+void pattern21(int n) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <= n; j++) {
+        if (i == 1 || i == n) {
+          std::cout << "*";
+        } else if (j == 1 || j == n) {
+          std::cout << "*";
+        } else {
+          std::cout << " ";          
+        }
+    }
+    std::cout << "\n";
+  }
+}
+
+void crazy_pattern22(int n) {
+  for (int i = 1; i <= 2*n -1; i++) {
+    int iValue;
+    if (i <= n) iValue = n - i + 1;
+    else iValue = i - n + 1;
+    for (int j = 1; j <= 2*n -1 ; j++) {
+      int jValue;
+      if (j <= n) jValue = n - j + 1;
+      else jValue = j - n + 1;
+      if (iValue >= jValue) {
+        std::cout << iValue;
+      } else {
+        std::cout << jValue;
+      }
+    }
+    std::cout << "\n";
+  }
+}
 void print_string(std::string a){
   std::cout << a;
 }
@@ -365,8 +419,11 @@ int main() {
       // pattern16(num);
       // pattern17(num);
       // pattern18(num);
-      pattern19(num);
-      pattern19_pointydiamond(num);
+      // pattern19(num);
+      // pattern19_pointydiamond(num);
+      // pattern20(num);
+      // pattern21(num);
+      crazy_pattern22(num);
       } else {
       std::cout << "Invalid input\n";
       break;
