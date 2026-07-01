@@ -1,5 +1,5 @@
 // #include <math.h>
-// #include <string.h>
+#include <string.h>
 #include<iostream>
 // #include<bits/stdc++.h> This is a header file that is only available on GNU GCC compiler.
 // algorithms, containers, functions, iterators
@@ -216,6 +216,113 @@ void pattern13(int n ) {
     std::cout << "\n";
   }
 }
+void pattern13WithLetters(int n ) {
+  for (int i = 1; i <= n; i++) {
+    int triangleNumber = ((i - 1) * i)/2;
+    for (int j = 1; j <=i; j++) {
+      std::cout << char(triangleNumber + j + 64) << " ";
+    }
+    std::cout << "\n";
+  }
+}
+void pattern14(int n ) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <=i; j++) {
+      std::cout << char(j + 64) << " ";
+    }
+    std::cout << "\n";
+  }
+}
+void pattern15(int n ) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <=n - i + 1; j++) {
+      std::cout << char(j + 64) << " ";
+    }
+    std::cout << "\n";
+  }
+}
+void pattern16(int n ) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <=i; j++) {
+      std::cout << char(i + 64) << " ";
+    }
+    std::cout << "\n";
+  }
+}
+void pattern16_inverted(int n ) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <=n - i + 1; j++) {
+      std::cout << char(i + 64) << " ";
+    }
+    std::cout << "\n";
+  }
+}
+void pattern17(int n ) {
+  for (int i = 1; i <= n; i++) {
+    int spaces = n - i;
+    for (int j = 1; j <= spaces; j++) {
+      std::cout << "-";
+    }
+    for (int j = 1; j <=2 * i - 1; j++) {
+      if (j <= i) {
+        std::cout << char(j + 64) << " ";
+      } else {
+        std::cout << char(2 * i - j + 64) << " ";
+      }
+    }
+    std::cout << "\n";
+  }
+}
+void pattern18(int n) {
+  for (int i = 1; i <= n; i++) {
+    for (int j = 1; j <=i; j++) {
+      std::cout << char(n - i + j + 64) << " ";
+    }
+    std::cout << "\n";
+  }
+}
+void pattern19(int n) {
+  int size = 2 * n; // size of the diamond in length
+  for (int i = 1; i <= size; i++) {
+    for (int j = 1; j <= size; j++) {
+      int leftSide, rightSide;
+      if (i <= n) {
+        leftSide = n - i + 1;
+        rightSide = n + i - 1;
+      } else {
+        leftSide = i - n;
+        rightSide = size - i + n;
+      }
+      if (j <= leftSide || j > rightSide) {
+        std::cout << "*";
+      } else {
+        std::cout << "-";
+      }
+    }
+    std::cout << "\n";
+  }
+}
+void pattern19_pointydiamond(int n) {
+  int size = 2 * n; // size of the diamond in length
+  for (int i = 1; i <= size; i++) {
+    for (int j = 1; j <= size + 1; j++) {
+      int leftSide, rightSide;
+      if (i <= n) {
+        leftSide = n - i + 1;
+        rightSide = n + i;
+      } else {
+        leftSide = i - n;
+        rightSide = size - i + n + 1;
+      }
+      if (j <= leftSide || j > rightSide) {
+        std::cout << "*";
+      } else {
+        std::cout << "-";
+      }
+    }
+    std::cout << "\n";
+  }
+}
 void print_string(std::string a){
   std::cout << a;
 }
@@ -250,7 +357,16 @@ int main() {
       // pattern11(num);
       print_string("--------------------------------\n");
       // pattern12_symmetric(num);
-      pattern13(num);
+      // pattern13(num);
+      // pattern13WithLetters(num);
+      // pattern14(num);
+      // print_string("--------------------------------\n");
+      // pattern15(num);
+      // pattern16(num);
+      // pattern17(num);
+      // pattern18(num);
+      pattern19(num);
+      pattern19_pointydiamond(num);
       } else {
       std::cout << "Invalid input\n";
       break;
