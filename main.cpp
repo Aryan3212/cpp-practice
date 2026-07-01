@@ -194,7 +194,7 @@ void pattern12_symmetric(int n) {
     std::cout << "\n";
   }
 }
-void pattern13(int n ) {
+void pattern13_naive(int n ) {
   int last = 0;
   for (int i = 1; i <= n; i++) {
     int j;
@@ -202,6 +202,17 @@ void pattern13(int n ) {
       std::cout << last + j << " ";
     }
     last = last + j - 1;
+    std::cout << "\n";
+  }
+}
+void pattern13(int n ) {
+  for (int i = 1; i <= n; i++) {
+    // AKA the sum of row numbers till last row
+    // this gives us the number we should start with in this row
+    int triangleNumber = ((i - 1) * i)/2;
+    for (int j = 1; j <=i; j++) {
+      std::cout << triangleNumber + j << " ";
+    }
     std::cout << "\n";
   }
 }
