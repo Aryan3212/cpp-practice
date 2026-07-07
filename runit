@@ -1,2 +1,8 @@
 #!/bin/bash
-g++ -std=c++23 main.cpp -o a.out && ./a.out
+# take file name as argument and run it, default to main.cpp
+if [ -z "$1" ]; then
+    FILE="main.cpp"
+else
+    FILE="$1"
+fi
+g++ -std=c++23 $FILE -pedantic-errors -o a.out && ./a.out
