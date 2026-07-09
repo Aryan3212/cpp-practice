@@ -22,6 +22,17 @@ void pattern2(int n ) {
     std::cout << "\n";
   }
 }
+void pattern2_reverse(int n ) {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n - i - 1; j++) {
+      std::cout << " ";
+    }
+    for (int j = 0; j <= i; j++) {
+      std::cout << "*";
+    }
+    std::cout << "\n";
+  }
+}
 void pattern3(int n ) {
   for (int i = 0; i < n; i++) {
     for (int j = 0; j <= i; j++) {
@@ -62,6 +73,17 @@ void pattern5_idiomatic(int n ) {
     std::cout << "\n";
   }
 }
+void pattern5_reverse(int n ) {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < i; j++) {
+      std::cout << " ";
+    }
+    for (int j = 0; j < n - i; j++) {
+      std::cout << "*";
+    }
+    std::cout << "\n";
+  }
+}
 void pattern6_idiomatic(int n ) {
   for (int i = 0; i <n; i++) {
     for (int j = 0; j < n - i; j++) {
@@ -88,6 +110,24 @@ void pattern8(int n ) {
     }
     for (int j2 = 0; j2 < 2*(n-i) - 1; j2++) {
       std::cout << "*";
+    }
+    std::cout << "\n";
+  }
+}
+void pattern8_hollow(int n ) {
+  for (int i = 0; i <n; i++) {
+    for (int j = 0; j < i; j++) {
+      std::cout << " ";
+    }
+    for (int j = 0; j < n - i; j++) {
+      if (i == 0 || j == 0 || j == n - i - 1) {
+        std::cout << "*";
+        if (j != n - i - 1) {
+          std::cout << " ";
+        }
+      } else {
+        std::cout << "  ";
+      }
     }
     std::cout << "\n";
   }
@@ -457,7 +497,10 @@ int main() {
       // pattern21(num);
       // crazy_pattern22(num);
       // rhombus_pattern(num);
-      diamond_pattern(num);
+      // diamond_pattern(num);
+      // pattern2_reverse(num);
+      // pattern5_reverse(num);
+      pattern8_hollow(num);
       } else {
       std::cout << "Invalid input\n";
       break;
