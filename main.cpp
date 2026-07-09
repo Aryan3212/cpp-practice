@@ -132,6 +132,24 @@ void pattern8_hollow(int n ) {
     std::cout << "\n";
   }
 }
+void pattern8_hollow_rightsideup(int n ) {
+  for (int i = 0; i <n; i++) {
+    for (int j = 0; j < n-i - 1; j++) {
+      std::cout << " ";
+    }
+    for (int j = 0; j <= i; j++) {
+      if (i == n - 1  || j == 0 || j == i) {
+        std::cout << "*";
+        if (j != i) {
+          std::cout << " ";
+        }
+      } else {
+        std::cout << "  ";
+      }
+    }
+    std::cout << "\n";
+  }
+}
 void pattern9(int n ) {
   for (int i = 0; i <2*n; i++) {
     int spaces;
@@ -501,6 +519,7 @@ int main() {
       // pattern2_reverse(num);
       // pattern5_reverse(num);
       pattern8_hollow(num);
+      pattern8_hollow_rightsideup(num);
       } else {
       std::cout << "Invalid input\n";
       break;
