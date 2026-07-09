@@ -377,6 +377,38 @@ void crazy_pattern22(int n) {
     std::cout << "\n";
   }
 }
+void rhombus_pattern(int n) {
+  for (int i = 0; i < n; i++) {
+    for (int j = 0;  j < i; j ++) {
+      std::cout<< " ";
+    }
+    for (int j = 0; j < n; j ++) {
+      std::cout<< "* ";
+    }
+    std::cout<< "\n\n";
+  }
+}
+
+void diamond_pattern(int n) {
+    int stars, spaces;
+    for (int i = 0; i < 2*n - 1; i++) {
+      if (i < n) {
+        stars = i;
+        spaces = n - i - 1;
+      } else {
+        stars = 2*(n - 1) - i;
+        spaces = i - n + 1;
+      }
+      for (int j = 0;  j < spaces; j ++) {
+        std::cout<< " ";
+      }
+      for (int j = 0; j <= stars; j ++) {
+        std::cout<< "*";
+        if (j != stars) std::cout<< " ";
+      }
+      std::cout<< "\n";
+    }
+  }
 void print_string(std::string a){
   std::cout << a;
 }
@@ -423,7 +455,9 @@ int main() {
       // pattern19_pointydiamond(num);
       // pattern20(num);
       // pattern21(num);
-      crazy_pattern22(num);
+      // crazy_pattern22(num);
+      // rhombus_pattern(num);
+      diamond_pattern(num);
       } else {
       std::cout << "Invalid input\n";
       break;
